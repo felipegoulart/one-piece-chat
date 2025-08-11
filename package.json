@@ -6,13 +6,12 @@
     "build": "turbo run build",
     "clean": "turbo run clean",
     "dev": "turbo run dev",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint": "turbo run lint",
+    "format-and-lint": "biome check .",
+    "format-and-lint:fix": "biome check . --write",
     "test": "turbo run test"
   },
-  "dependencies": {},
   "devDependencies": {
-    "prettier": "^3.2.5",
+    "@biomejs/biome": "^2.1.4",
     "turbo": "^2.5.5"
   },
   "engines": {

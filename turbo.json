@@ -2,17 +2,32 @@
   "$schema": "https://turborepo.com/schema.json",
   "tasks": {
     "build": {
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**", "public/dist/**"],
-      "dependsOn": ["^build"],
-      "env": ["NEXT_PUBLIC_API_HOST"]
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env*"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        "!.next/cache/**",
+        "public/dist/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ],
+      "env": [
+        "NEXT_PUBLIC_API_HOST"
+      ]
     },
     "test": {
-      "outputs": ["coverage/**"],
+      "outputs": [
+        "coverage/**"
+      ],
       "dependsOn": []
     },
-    "lint": {
-      "dependsOn": ["^build"]
+    "//#format-and-lint": {},
+    "//#format-and-lint:fix": {
+      "cache": false
     },
     "dev": {
       "cache": false,
