@@ -8,11 +8,15 @@
     "dev": "turbo run dev",
     "format-and-lint": "biome check .",
     "format-and-lint:fix": "biome check . --write",
-    "test": "turbo run test"
+    "test:projects": "vitest run",
+    "test:projects:watch": "vitest --watch",
+    "view-report": "turbo run view-report"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.4",
-    "turbo": "^2.5.5"
+    "@repo/vitest-config": "workspace:*",
+    "turbo": "^2.5.5",
+    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=14.0.0",

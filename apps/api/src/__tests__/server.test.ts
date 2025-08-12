@@ -1,23 +1,27 @@
+import type { FastifyInstance } from "fastify";
 import supertest from "supertest";
-import { describe, it, expect } from "@jest/globals";
+import { beforeAll, describe, expect, it } from "vitest";
 import { createServer } from "../server";
 
 describe("server", () => {
+  let app: FastifyInstance;
+
+  beforeAll(async () => {
+    app = createServer();
+    await app.ready();
+  });
+
   it("status check returns 200", async () => {
-    await supertest(createServer())
-      .get("/status")
-      .expect(200)
-      .then((res) => {
-        expect(res.body.ok).toBe(true);
-      });
+    const response = await app.inject().get("/status");
+
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toBe("ok");
   });
 
   it("message endpoint says hello", async () => {
-    await supertest(createServer())
-      .get("/message/jared")
-      .expect(200)
-      .then((res) => {
-        expect(res.body.message).toBe("hello jared");
-      });
+    const response = await app.inject().get("/");
+
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toBe("hello world");
   });
 });

@@ -11,9 +11,15 @@ importers:
       '@biomejs/biome':
         specifier: ^2.1.4
         version: 2.1.4
+      '@repo/vitest-config':
+        specifier: workspace:*
+        version: link:packages/vitest-config
       turbo:
         specifier: ^2.5.5
         version: 2.5.5
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.4(@types/node@20.19.10)(@vitest/ui@3.0.7)(jsdom@26.1.0)(yaml@2.8.1)
 
   apps/api:
     dependencies:
@@ -42,6 +48,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
+      '@repo/vitest-config':
+        specifier: workspace:*
+        version: link:../../packages/vitest-config
       '@types/node':
         specifier: ^20.19.10
         version: 20.19.10
@@ -63,6 +72,9 @@ importers:
       typescript:
         specifier: ^5.9.2
         version: 5.9.2
+      vitest:
+        specifier: ^3.2.4
+        version: 3.2.4(@types/node@20.19.10)(@vitest/ui@3.0.7)(jsdom@26.1.0)(yaml@2.8.1)
 
   packages/database:
     dependencies:

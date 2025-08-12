@@ -17,34 +17,26 @@ export const createServer = (): FastifyInstance => {
     {
       schema: {
         response: {
-          200: z.object({
-            message: z.string(),
-          }),
+          200: z.literal("hello world"),
         },
       },
     },
-    async () => {
-      return {
-        message: "hello world",
-      };
+    () => {
+      return "hello world" as const;
     },
   );
 
   app.withTypeProvider<ZodTypeProvider>().get(
-    "/health",
+    "/status",
     {
       schema: {
         response: {
-          200: z.object({
-            status: z.string(),
-          }),
+          200: z.literal("ok"),
         },
       },
     },
-    async () => {
-      return {
-        status: "ok",
-      };
+    () => {
+      return "ok" as const;
     },
   );
 
