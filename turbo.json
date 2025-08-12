@@ -6,24 +6,28 @@
         "$TURBO_DEFAULT$",
         ".env*"
       ],
-      "outputs": [
-        "dist/**",
-        ".next/**",
-        "!.next/cache/**",
-        "public/dist/**"
-      ],
+      "outputs": [],
       "dependsOn": [
         "^build"
-      ],
-      "env": [
-        "NEXT_PUBLIC_API_HOST"
       ]
     },
     "test": {
-      "outputs": [
-        "coverage/**"
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/vitest.config.ts"
       ],
-      "dependsOn": []
+      "dependsOn": [
+        "transit",
+        "@repo/vitest-config#build"
+      ],
+      "outputs": [
+        "coverage.json"
+      ]
+    },
+    "transit": {
+      "dependsOn": [
+        "^transit"
+      ]
     },
     "//#format-and-lint": {},
     "//#format-and-lint:fix": {
