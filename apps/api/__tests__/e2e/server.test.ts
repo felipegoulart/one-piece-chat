@@ -1,9 +1,9 @@
 import type { FastifyInstance } from "fastify";
 import supertest from "supertest";
 import { beforeAll, describe, expect, it } from "vitest";
-import { createServer } from "../server";
+import { createServer } from "../../src/server";
 
-describe("server", () => {
+describe("E2E: server", () => {
   let app: FastifyInstance;
 
   beforeAll(async () => {
